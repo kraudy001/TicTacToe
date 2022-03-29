@@ -9,20 +9,75 @@ namespace logic
     class logic : IGameModel, IGameControler
     {
         public int[,] map { get; set; }
-
         public logic()
         {
             map = new int[3,3];
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    map[i, j] = 2;
+                }
+            }
         }
 
         public void Click(double With,double hight, double clickWertical, double clcickHorisontal, int DOWHAT)
         {
-            map[(int)(With/clcickHorisontal*3),(int)(hight/clickWertical*3)] = DOWHAT;
-            if (WIN())
+            if (FreeSpace())
+            {
+                map[(int)(With / clcickHorisontal * 3), (int)(hight / clickWertical * 3)] = DOWHAT;
+                if (WIN())
+                {
+                    map = new int[3, 3];
+                }
+            }
+            else
             {
                 map = new int[3, 3];
             }
 
+        }
+
+        public void AIClick(int DOWHAT)
+        {
+            if (FreeSpace())
+            {
+                var rand = new Random();
+                bool IS = true;
+                while (IS)
+                {
+                    int with = rand.Next(0, 3);
+                    int hight = rand.Next(0, 3);
+                    if (map[with, hight] == 2)
+                    {
+                        map[with, hight] = DOWHAT;
+                        IS = false;
+                    }
+                }
+                if (WIN())
+                {
+                    map = new int[3, 3];
+                }
+            }
+            else
+            {
+                map = new int[3, 3];
+            }
+        }
+
+        private bool FreeSpace()
+        {
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    if(map[i, j] == 2)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         private bool WIN()
