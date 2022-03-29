@@ -37,6 +37,13 @@ namespace logic
         {
             renderer.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
             renderer.InvalidateVisual();
+
+
+        }
+
+        private void grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //to do mouse pointer, click meghívás és kinda kész?
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:logic"        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
-    <Grid x:Name="grid">
+    <Grid x:Name="grid" MouseLeftButtonDown="grid_MouseLeftButtonDown">
         <local:Renderer x:Name="renderer"/>
     </Grid>
 </Window>
