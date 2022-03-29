@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace logic
 {
-    class logic : IGameModel, IGameControler
+    class bl : IGameModel, IGameControler
     {
         public int[,] map { get; set; }
-        public logic()
+        public bl()
         {
             map = new int[3,3];
             for (int i = 0; i < map.GetLength(0); i++)

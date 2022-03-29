@@ -23,6 +23,20 @@ namespace logic
         public MainWindow()
         {
             InitializeComponent();
+            bl bl = new bl();
+            renderer.SetupModel(bl);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            renderer.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            renderer.InvalidateVisual();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            renderer.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            renderer.InvalidateVisual();
         }
     }
 }
