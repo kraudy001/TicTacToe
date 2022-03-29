@@ -8,7 +8,7 @@ namespace logic
 {
     class logic : IGameModel, IGameControler
     {
-        public int[,] map;
+        public int[,] map { get; set; }
 
         public logic()
         {
@@ -17,7 +17,7 @@ namespace logic
 
         }
 
-        public void Click()
+        public void Click(double With,double hight, double clickWertical, double clcickHorisontal, int DOWHAT)
         {
 
         }
