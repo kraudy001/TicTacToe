@@ -1,7 +1,7 @@
 ﻿namespace logic
 {
     internal interface IGameControler
-    {//Contróóóóóóóóóóóóóler
-        void Click();
+    {
+        void Click(double With, double hight, double clickWertical, double clcickHorisontal, int DOWHAT);
     }
 }

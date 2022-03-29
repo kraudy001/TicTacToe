@@ -1,6 +1,6 @@
 ﻿namespace logic
 {
-    internal interface IGameModel
+    public interface IGameModel
     {
         int[,] map { get; set; }
     }
