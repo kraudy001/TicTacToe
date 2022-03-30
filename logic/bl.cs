@@ -25,7 +25,9 @@ namespace logic
         {
             if (FreeSpace())
             {
-                map[(int)(With / clcickHorisontal * 3), (int)(hight / clickWertical * 3)] = DOWHAT;
+                int x = (int)(clcickHorisontal / With * 3);
+                int y = (int)(clickWertical / hight * 3);
+                map[(int)(clcickHorisontal / With * 3), (int)(clickWertical / hight * 3)] = DOWHAT;
                 if (WIN())
                 {
                     map = new int[3, 3];
