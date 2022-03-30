@@ -11,14 +11,7 @@ namespace logic
         public int[,] map { get; set; }
         public bl()
         {
-            map = new int[3,3];
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    map[i, j] = 2;
-                }
-            }
+            newMap();
         }
 
         public void Click(double With,double hight, double clickWertical, double clcickHorisontal, int DOWHAT)
@@ -30,12 +23,12 @@ namespace logic
                 map[(int)(clcickHorisontal / With * 3), (int)(clickWertical / hight * 3)] = DOWHAT;
                 if (WIN())
                 {
-                    map = new int[3, 3];
+                    newMap();
                 }
             }
             else
             {
-                map = new int[3, 3];
+                newMap();
             }
 
         }
@@ -58,12 +51,24 @@ namespace logic
                 }
                 if (WIN())
                 {
-                    map = new int[3, 3];
+                    newMap();
                 }
             }
             else
             {
-                map = new int[3, 3];
+                newMap();
+            }
+        }
+
+        private void newMap()
+        {
+            map = new int[3, 3];
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    map[i, j] = 2;
+                }
             }
         }
 
@@ -86,7 +91,7 @@ namespace logic
         {
             for (int i = 0; i < map.GetLength(0); i++)
             {
-                if (map[i,0] == map[i,1] && map[i,0] == map[i, 2])
+                if (map[i, 0] !=  2 && map[i,0] == map[i,1] && map[i,0] == map[i, 2])
                 {
                     return true;
                 }
@@ -95,13 +100,13 @@ namespace logic
 
             for (int i = 0; i < map.GetLength(1); i++)
             {
-                if (map[0, i] == map[1, i] && map[0, i] == map[2, i])
+                if (map[i, 0] != 2 && map[0, i] == map[1, i] && map[0, i] == map[2, i])
                 {
                     return true;
                 }
             }
 
-            if (map[1, 1] == map[2, 2] && map[2, 2] == map[3, 3] || map[3, 1] == map[2, 2] && map[2, 2] == map[1, 3])
+            if (map[1, 1] != 2 && map[0, 0] == map[1, 1] && map[1, 1] ==  map[2, 2] || map[1, 1] != 2 && map[2, 0] == map[1, 1] && map[1, 1] == map[0, 2])
             {
                 return true;
             }
