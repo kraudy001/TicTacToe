@@ -50,7 +50,7 @@ namespace logic
             if (p.X <= this.ActualWidth && p.Y <= this.ActualHeight)
             {
                 clickController.ValidClick(p, this.ActualWidth, this.ActualHeight);
-                
+                renderer.InvalidateVisual();
             }
             
 

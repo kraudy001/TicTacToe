@@ -57,7 +57,7 @@ namespace logic
                                 break;
                         }
 
-                        drawingContext.DrawRectangle(brush, new Pen(Brushes.Black, 3), new Rect(0, 0, size.Width, size.Height));
+                        drawingContext.DrawRectangle(brush, new Pen(Brushes.Black, 3), new Rect(i*tileWidth, j*tileHeight, tileWidth, tileHeight));
                     }
                 }
 
