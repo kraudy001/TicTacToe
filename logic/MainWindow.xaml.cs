@@ -20,11 +20,13 @@ namespace logic
     /// </summary>
     public partial class MainWindow : Window
     {
+        Clicker clickController;
         public MainWindow()
         {
             InitializeComponent();
-            bl bl = new bl();
-            renderer.SetupModel(bl);
+            bl blogic = new bl();
+            renderer.SetupModel(blogic);
+            clickController = new Clicker(blogic);
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -44,6 +46,14 @@ namespace logic
         private void grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //to do mouse pointer, click meghívás és kinda kész?
+            Point p = Mouse.GetPosition(Application.Current.MainWindow);            
+            if (p.X <= this.ActualWidth && p.Y <= this.ActualHeight)
+            {
+                clickController.ValidClick(p, this.ActualWidth, this.ActualHeight);
+                
+            }
+            
+
         }
     }
 }
