@@ -11,7 +11,7 @@ namespace Pong.Logic
     {
         Size area;
         public Racket Racket { get; set; }
-
+        public event EventHandler Changed;
         public Ball Ball { get; set; }
 
 
@@ -35,10 +35,10 @@ namespace Pong.Logic
             switch (dir)
             {
                 case Direction.Left:
-                    racket.Move(area, -10);
+                    Racket.Move(area, -10);
                     break;
                 case Direction.Right:
-                    racket.Move(area, 10);
+                    Racket.Move(area, 10);
                     break;
                 default:
                     break;

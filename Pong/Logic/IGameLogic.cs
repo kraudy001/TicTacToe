@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace Pong.Logic
 {
@@ -6,7 +7,7 @@ namespace Pong.Logic
     {
         Ball Ball { get; set; }
         Racket Racket { get; set; }
-
+        event EventHandler Changed;
         void Control(GameLogic.Direction dir);
         void SetupSize(Size area);
     }
