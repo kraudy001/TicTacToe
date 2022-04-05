@@ -25,7 +25,7 @@ namespace Pong.Render
         public void SetupModel(IGameLogic gameLogic)
         {
             this.logic = gameLogic;
-            InvalidateVisual();
+            this.logic.Changed += (s, e) => InvalidateVisual();
         }
 
         public Brush Fild
