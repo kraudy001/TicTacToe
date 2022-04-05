@@ -47,7 +47,16 @@ namespace Pong.Logic
 
         public void TimeStep()
         {
-            Ball.Move(area);
+            bool notWall = Ball.Move(area);
+            if (!notWall)
+            {
+                Point p = Ball.Center;
+                if (p.X <= 0 +10 +Ball.Radius)
+                {
+
+                }
+            }
+
         }
     }
 }
