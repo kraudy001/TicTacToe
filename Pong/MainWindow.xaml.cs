@@ -33,23 +33,24 @@ namespace Pong
         {
             if (e.Key == Key.Left)
             {
-                gameLogic.GetHashCode();
+                gameLogic.Control(GameLogic.Direction.Left);
             }
             else if (e.Key == Key.Right)
             {
-                gameLogic = new GameLogic();
+                gameLogic.Control(GameLogic.Direction.Right);
             }
 
         }
 
         private void Dt_Tick(object sender, EventArgs e)
-        { 
-        
+        {
+            gameLogic.TimeStep();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            gameLogic = new GameLogic();
+            gameLogic = new GameLogic((int)grid.ActualWidth / 2, 100, 10, new Size(grid.ActualWidth, grid.ActualHeight));
+            
             Renderer.SetupModel(gameLogic);
 
             DispatcherTimer dt = new DispatcherTimer();
@@ -58,6 +59,7 @@ namespace Pong
             dt.Start();
 
             Renderer.SetupSize(new Size(grid.ActualWidth, grid.ActualHeight));
+            gameLogic.SetupSize(new Size(grid.ActualWidth, grid.ActualHeight));
 
 
         }
@@ -67,6 +69,8 @@ namespace Pong
             if(gameLogic != null)
             {
                 Renderer.SetupSize(new Size(grid.ActualWidth, grid.ActualHeight));
+                gameLogic.SetupSize(new Size(grid.ActualWidth, grid.ActualHeight));
+
             }
 
         }
