@@ -25,10 +25,20 @@ namespace Pong.Logic
         public bool Move(Size area)
         {
             Point newCenter = new Point(Center.X + Speed.X, Center.Y + Speed.Y);
-            if (newCenter.X > 0+3 + 10 && newCenter.X < area.Width - racketWidth - 10)
+            if (newCenter.X > 0+Radius + 10 
+                && newCenter.X < area.Width - Radius - 10 
+                && newCenter.Y > 0+ Radius +10 
+                && newCenter.Y < area.Height -Radius-10)
             {
                 Center = newCenter;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+
+        
     }
 }

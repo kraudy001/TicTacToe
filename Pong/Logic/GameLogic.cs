@@ -44,5 +44,10 @@ namespace Pong.Logic
                     break;
             }
         }
+
+        public void TimeStep()
+        {
+            Ball.Move(area);
+        }
     }
 }
