@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Pong.Logic
 {
-    class Racket
+    internal class Racket
     {
         public Point Center { get; set; }
         int racketWidth;

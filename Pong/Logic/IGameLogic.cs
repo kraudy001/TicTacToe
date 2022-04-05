@@ -1,6 +1,13 @@
-﻿namespace Pong.Logic
+﻿using System.Windows;
+
+namespace Pong.Logic
 {
-    public interface IGameLogic
+    internal interface IGameLogic
     {
+        Ball Ball { get; set; }
+        Racket Racket { get; set; }
+
+        void Control(GameLogic.Direction dir);
+        void SetupSize(Size area);
     }
 }

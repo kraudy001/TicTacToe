@@ -7,15 +7,18 @@ using System.Windows;
 
 namespace Pong.Logic
 {
-    public class GameLogic : IGameLogic
+    internal class GameLogic : IGameLogic
     {
         Size area;
-        Racket racket;
-        Point Center;
+        public Racket Racket { get; set; }
+
+        public Ball Ball { get; set; }
+
 
         public GameLogic(int x, int width, int height, Size area)
         {
-            racket = new Racket(x, width, height, area);
+            Racket = new Racket(x, width, height, area);
+            Ball = new Ball(area);
         }
         public void SetupSize(Size area)
         {
