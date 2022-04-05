@@ -13,10 +13,22 @@ namespace Pong.Logic
 
         public Vector Speed { get; set; }
 
+        public int Radius;
+
         public Ball(Size area)
         {
             Center = new Point(area.Width / 2, area.Height / 4);
             Speed = new Vector(1, 1);
+            Radius = 3;
+        }
+
+        public bool Move(Size area)
+        {
+            Point newCenter = new Point(Center.X + Speed.X, Center.Y + Speed.Y);
+            if (newCenter.X > 0+3 + 10 && newCenter.X < area.Width - racketWidth - 10)
+            {
+                Center = newCenter;
+            }
         }
     }
 }

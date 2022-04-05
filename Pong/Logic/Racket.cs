@@ -10,14 +10,18 @@ namespace Pong.Logic
     internal class Racket
     {
         public Point Center { get; set; }
-        int racketWidth;
-        int racketHeight;
+        public int racketWidth;
+        public int racketHeight;
         Size area;
 
         public Racket(int xCenter, int racketWidth, int racketHeight, Size area)
         {
             //Center = new Point(area.Width / 2, area.Height - 20);
             Center = new Point(xCenter, area.Height-(racketHeight+10));
+            this.racketWidth = racketWidth;
+            this.racketHeight = racketHeight;
+            this.area = area;
+
 
         }
 
